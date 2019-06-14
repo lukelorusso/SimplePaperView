@@ -22,13 +22,31 @@ open class SimplePaperView @JvmOverloads constructor(
     private val itemList = mutableListOf<DrawableItem>()
     private var paint = Paint().apply { flags = Paint.ANTI_ALIAS_FLAG }
     private var maxDims = PointF(0F, 0F)
+    var paddingTop = 0F
+    var paddingStart = 0F
+    var paddingEnd = 0F
+    var paddingBottom = 0F
     var invertY = false // if true, you can think to Y dimension as a "classic" cartesian axis (values growing upwards)
+
+    init {
+        // Load the styled attributes and set their properties
+        val attributes = context.obtainStyledAttributes(attrs, R.styleable.SimplePaperView, 0, 0)
+        val padding = attributes.getDimension(R.styleable.SimplePaperView_android_padding, 0F)
+        paddingTop = attributes.getDimension(R.styleable.SimplePaperView_android_paddingTop, padding)
+        paddingStart = attributes.getDimension(R.styleable.SimplePaperView_android_paddingLeft, padding)
+        paddingStart = attributes.getDimension(R.styleable.SimplePaperView_android_paddingStart, paddingStart)
+        paddingEnd = attributes.getDimension(R.styleable.SimplePaperView_android_paddingRight, padding)
+        paddingEnd = attributes.getDimension(R.styleable.SimplePaperView_android_paddingEnd, paddingEnd)
+        paddingBottom = attributes.getDimension(R.styleable.SimplePaperView_android_paddingTop, padding)
+        attributes.recycle()
+    }
 
     //region PRIVATE METHODS
     override fun onDraw(canvas: Canvas?) {
         if (invertY) {
-            canvas?.translate(0F, height.toFloat()) // Reset where 0,0 is located
-            canvas?.scale(1F, -1F) // Invert
+            invertY(canvas)
+        } else {
+            canvas?.translate(paddingStart, paddingTop)
         }
 
         // Iterate through items
@@ -110,12 +128,12 @@ open class SimplePaperView @JvmOverloads constructor(
             }
         }
 
-        maxDims = PointF(maxX, maxY)
+        maxDims = PointF(maxX + paddingStart + paddingEnd, maxY + paddingTop + paddingBottom)
     }
 
     private fun invertY(canvas: Canvas?) {
-        canvas?.translate(0F, height.toFloat()) // reset where 0,0 is located
-        canvas?.scale(1F, -1F) // invert
+        canvas?.translate(0F + paddingStart, height.toFloat() + paddingTop) // Reset where 0,0 is located
+        canvas?.scale(1F, -1F) // Invert
     }
 
     protected fun getBackgroundColor(): Int {
