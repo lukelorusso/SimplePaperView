@@ -1,4 +1,4 @@
-package com.lukelorusso.simplepaperview
+package com.lukelorusso.extensions
 
 import android.content.Context
 import android.util.DisplayMetrics

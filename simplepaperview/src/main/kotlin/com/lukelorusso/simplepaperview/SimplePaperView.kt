@@ -11,6 +11,7 @@ import android.text.StaticLayout
 import android.text.TextPaint
 import android.util.AttributeSet
 import android.view.View
+import com.lukelorusso.extensions.dpToPixel
 
 /**
  * Simple View to draw lines, circles or text labels

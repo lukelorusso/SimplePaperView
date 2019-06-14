@@ -16,6 +16,11 @@ android {
             minifyEnabled false
         }
     }
+    sourceSets {
+        androidTest.java.srcDirs += 'src/androidTest/kotlin'
+        main.java.srcDirs += 'src/main/kotlin'
+        test.java.srcDirs += 'src/test/kotlin'
+    }
 }
 
 dependencies {
