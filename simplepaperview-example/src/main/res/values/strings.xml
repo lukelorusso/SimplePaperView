@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SimplePaperView</string>
+    <string name="clear">Clear</string>
+    <string name="redraw">Redraw</string>
+    <string name="textLabel">"This is a label"</string>
+    <string name="title">Here\'s a paper view:</string>
+</resources>
