@@ -21,11 +21,11 @@ Saying "it's a pain in the neck" is an euphemism!
 If you just need to draw a graph with some lines, basic shapes and labels all around... it could be very tricky!  
 
 SimplePaperView takes care of anything:  
-* [draws on canvas]
-* [applies proper translations]
-* [handles onMeasure() method]
-* [gives you the choice to invert the Y axis (like in math)]
-* [considers padding, both programmatically and via layout]
+* draws on canvas
+* applies proper translations
+* handles onMeasure() method
+* gives you the choice to invert the Y axis (like in math)
+* considers padding, both programmatically and via layout
 
 All you hate to put you effort on is what you really care: create lines, circles, labels and beautify your view!
 
@@ -54,7 +54,9 @@ maybe add some padding or background color:
 
 Let's move to the code!  
 If you want to invert Y axis just:  
-`mySimplePaperView.invertY = true`  
+```
+mySimplePaperView.invertY = true
+```
 
 to create a lines:  
 ```
@@ -94,9 +96,13 @@ val label = SimplePaperView.TextLabel(
 ```  
 
 Now that you have all your items, you can draw one of them:  
-`mySimplePaperView.drawInDp(line)`  
+```
+mySimplePaperView.drawInDp(line)
+```  
 or  
-`mySimplePaperView.drawInPx(line)`  
+```
+mySimplePaperView.drawInPx(line)
+```  
 
 If you need to add multiple items and draw them together at the end, you can:  
 ```
@@ -112,10 +118,14 @@ mySimplePaperView.drawInDp( // or in px :)
 ```  
 
 Do you need a listener when your objects are all drawn?  
-`mainSimplePaperView.listener = { Log.d("SimplePaperView", "all drawn!") }`  
+```
+mainSimplePaperView.listener = { Log.d("SimplePaperView", "all drawn!") }
+```  
 
 Don't you like your drawing? Just clear the paper:  
-`mySimplePaperView.clearPaper()`  
+```
+mySimplePaperView.clearPaper()
+```  
 
 Feel free to checkout and launch the example app 🎡
 
