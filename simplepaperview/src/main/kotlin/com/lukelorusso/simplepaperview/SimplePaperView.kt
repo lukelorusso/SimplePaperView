@@ -59,7 +59,8 @@ open class SimplePaperView @JvmOverloads constructor(
                     it.x,
                     it.y,
                     it.dx,
-                    it.dy, paint
+                    it.dy,
+                    paint
                 )
             }
 
@@ -76,8 +77,9 @@ open class SimplePaperView @JvmOverloads constructor(
             is TextLabel -> {
                 if (it.staticLayout != null && it.textPaint != null) {
                     if (invertY) invertY(canvas) // otherwise you got reversed texts
-                    val x = it.x - if (it.centerHorizontally) (it.staticLayout!!.width / 2) else 0
-                    val y = if (invertY) (maxDims.y - it.y) - it.staticLayout!!.height else it.y
+                    var x = it.x
+                    val y = if (invertY) maxDims.y - it.y else it.y
+                    x -= if (it.centerHorizontally) (it.staticLayout!!.width / 2) else 0
                     canvas?.drawText(it.text, x, y, it.textPaint!!)
                     if (invertY) invertY(canvas) // restoring Y axis
                 }
@@ -123,8 +125,18 @@ open class SimplePaperView @JvmOverloads constructor(
                 }
 
                 is TextLabel -> {
-                    maxX = Math.max(maxX, item.x)
-                    maxY = Math.max(maxY, item.y)
+                    if (item.staticLayout != null && item.textPaint != null) {
+                        maxX = Math.max(
+                            maxX, item.x +
+                                    if (item.centerHorizontally) (item.staticLayout!!.width / 2)
+                                    else item.staticLayout!!.width
+                        )
+                        maxY = Math.max(
+                            maxY, item.y +
+                                    if (invertY) item.staticLayout!!.height
+                                    else 0
+                        )
+                    }
                 }
             }
         }
@@ -135,11 +147,6 @@ open class SimplePaperView @JvmOverloads constructor(
     private fun invertY(canvas: Canvas?) {
         canvas?.translate(0F + paddingStart, height.toFloat() + paddingTop) // Reset where 0,0 is located
         canvas?.scale(1F, -1F) // Invert
-    }
-
-    protected fun getBackgroundColor(): Int {
-        return if (background is ColorDrawable) (background as ColorDrawable).color
-        else Color.TRANSPARENT
     }
     //endregion
 
@@ -251,6 +258,11 @@ open class SimplePaperView @JvmOverloads constructor(
             invalidate()
             requestLayout()
         }
+    }
+
+    fun getBackgroundColor(): Int {
+        return if (background is ColorDrawable) (background as ColorDrawable).color
+        else Color.TRANSPARENT
     }
     //endregion
 

@@ -37,19 +37,19 @@ class MainActivity : AppCompatActivity() {
 
     private fun drawStuff() {
         drawText()
-        draw1stItem()
-        Handler().postDelayed({ draw2ndItem() }, 500)
-        Handler().postDelayed({ draw3thItem() }, 1000)
-        Handler().postDelayed({ draw4thItem() }, 1500)
+        Handler().postDelayed({ draw1stItem() }, 500)
+        Handler().postDelayed({ draw2ndItem() }, 1000)
+        Handler().postDelayed({ draw3thItem() }, 1500)
+        Handler().postDelayed({ draw4thItem() }, 2000)
     }
 
     private fun drawText() {
         mainSimplePaperView.drawInDp(
             SimplePaperView.TextLabel(
                 getString(R.string.textLabel),
-                14F,
-                100F,
-                30F,
+                18F,
+                110F,
+                50F,
                 ContextCompat.getColor(this, R.color.textLabel),
                 true,
                 ResourcesCompat.getFont(this, R.font.roboto_italic)
@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun draw1stItem() {
         mainSimplePaperView.drawInDp(
-            SimplePaperView.Line(0F, 0F, 200F, 200F, colors[0], 4F)
+            SimplePaperView.Circle(110F, 100F, 25F, colors[0])
         )
     }
 
@@ -71,13 +71,16 @@ class MainActivity : AppCompatActivity() {
 
     private fun draw3thItem() {
         mainSimplePaperView.drawInDp(
-            SimplePaperView.Line(400F, 0F, 600F, 180F, colors[2], 2F)
+            SimplePaperView.Line(410F, 60F, 580F, 130F, colors[2], 2F)
         )
     }
 
     private fun draw4thItem() {
         mainSimplePaperView.drawInDp(
-            SimplePaperView.Circle(600F, 90F, 25F, colors[3])
+            listOf(
+                SimplePaperView.Circle(660F, 130F, 25F, colors[3]),
+                SimplePaperView.Circle(660F, 130F, 23F, mainSimplePaperView.getBackgroundColor())
+            )
         )
     }
 
