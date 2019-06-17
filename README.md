@@ -30,15 +30,20 @@ In this way you can put your effort on what you really care: create lines, circl
 
 ## How to use it? ##
 
-Add the view to your layout:  
-```
+Make sure to include the library in your app's build.gradle:
+```groovy
+    implementation 'com.lukelorusso:simplepaperview:1.1.0'
+```  
+
+Add the view to your layout:
+```xml
 <com.lukelorusso.simplepaperview.SimplePaperView
         android:id="@+id/mainSimplePaperView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 ```  
 
-maybe add some padding or background color:  
+maybe add some padding or background color:
 ```
         ...
         android:background="@color/paperBackground"
@@ -50,13 +55,13 @@ maybe add some padding or background color:
 ```  
 
 Let's move to the code!  
-If you want to invert Y axis just:  
-```
+If you want to invert Y axis just:
+```kotlin
 mySimplePaperView.invertY = true
 ```
 
-to create a lines:  
-```
+to create a lines:
+```kotlin
 val line = SimplePaperView.Line(
     200F, // starting x position
     200F, // starting y position
@@ -69,18 +74,18 @@ val line = SimplePaperView.Line(
 
 Dimensions may be in pixels or dp: you choose!  
 
-For a circle:  
-```
+For a circle:
+```kotlin
 val circle = SimplePaperView.Circle(
     110F, // x position
     100F, // y position
     25F, // radius position
-    Color.BLUE, // the color
+    Color.BLUE // the color
 )
 ```  
 
-Let's create a text label:  
-```
+Let's create a text label:
+```kotlin
 val label = SimplePaperView.TextLabel(
     "your text",
     18F, // text size
@@ -92,50 +97,50 @@ val label = SimplePaperView.TextLabel(
 )
 ```  
 
-Now that you have all your items, you can draw one of them:  
-```
+Now that you have all your items, you can draw one of them:
+```kotlin
 mySimplePaperView.drawInDp(line)
 ```  
 or  
-```
+```kotlin
 mySimplePaperView.drawInPx(line)
 ```  
 
-If you need to add multiple items and draw them together at the end, you can:  
-```
+If you need to add multiple items and draw them together at the end, you can:
+```kotlin
 mySimplePaperView.drawInDp(circle, false) // we invoke the choice to NOT invalidate the view ("false")
 mySimplePaperView.drawInDp(label, true) // now we want to invalidate (redraw) the view ("true")
 ```  
 
-Anyway, to simplify your life you may want to:  
-```
+Anyway, to simplify your life you may want to:
+```kotlin
 mySimplePaperView.drawInDp( // or in px :)
     listOf(line, circle, label)
 )
 ```  
 
-Do you need a listener when your objects are all drawn?  
-```
+Do you need a listener when your objects are all drawn?
+```kotlin
 mainSimplePaperView.setOnDrawListener { Log.d("SimplePaperView", "all drawn!") }
 ```  
 
-Don't you like your drawing? Just clear the paper:  
-```
+Don't you like your drawing? Just clear the paper:
+```kotlin
 mySimplePaperView.clearPaper()
 ```  
 
 Feel free to checkout and launch the example app 🎡
 
-More shapes coming soon! 😎  
+More shapes coming soon! 😎
 
 - - -
 
 ## Real life applications ##
 
-[CalendarTrendView](https://github.com/lukelorusso/CalendarTrendView)  
+[CalendarTrendView](https://github.com/lukelorusso/CalendarTrendView)
 
 - - -
 
 ## Copyright ##
 
-The App: Copyright 2019 LUCA LORUSSO - http://lukelorusso.com  
+The App: Copyright 2019 LUCA LORUSSO - http://lukelorusso.com
