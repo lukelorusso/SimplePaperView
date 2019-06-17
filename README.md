@@ -28,7 +28,7 @@ In this way you can put your effort on what you really care: create lines, circl
 
 - - -
 
-## How you can use it? ##
+## How to use it? ##
 
 Add the view to your layout:  
 ```
@@ -103,7 +103,7 @@ mySimplePaperView.drawInPx(line)
 
 If you need to add multiple items and draw them together at the end, you can:  
 ```
-mySimplePaperView.drawInDp(circle, false) // we invoke the the choice to NOT invalidate the view ("false")
+mySimplePaperView.drawInDp(circle, false) // we invoke the choice to NOT invalidate the view ("false")
 mySimplePaperView.drawInDp(label, true) // now we want to invalidate (redraw) the view ("true")
 ```  
 
