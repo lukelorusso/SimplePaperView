@@ -20,16 +20,14 @@ minSdkVersion = 21
 Have you ever tried to build your own, simple, custom view?  
 Saying "it's a pain in the neck" is an euphemism!  
 
-If you just need to draw a graph with some lines, basic shapes and labels all around... it could be very tricky!  
-
-SimplePaperView takes care of anything:  
+If you just need to draw a graph with some lines, basic shapes and labels all around... SimplePaperView takes care of anything:  
 * draws on canvas
 * applies proper translations
 * handles onMeasure() method
-* gives you the choice to invert the Y axis (like in math)
+* gives you the choice to invert the Y axis (like in classical cartesian system)
 * considers padding, both programmatically and via layout
 
-All you hate to put you effort on is what you really care: create lines, circles, labels and beautify your view!
+In this way you can put your effort on what you really care: create lines, circles, labels and beautify your view!
 
 - - -
 
