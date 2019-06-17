@@ -121,7 +121,7 @@ mySimplePaperView.drawInDp( // or in px :)
 
 Do you need a listener when your objects are all drawn?  
 ```
-mainSimplePaperView.listener = { Log.d("SimplePaperView", "all drawn!") }
+mainSimplePaperView.setOnDrawListener { Log.d("SimplePaperView", "all drawn!") }
 ```  
 
 Don't you like your drawing? Just clear the paper:  
