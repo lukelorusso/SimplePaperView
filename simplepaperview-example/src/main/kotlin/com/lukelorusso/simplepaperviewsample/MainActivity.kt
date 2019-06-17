@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         )
 
         drawStuff()
-        mainSimplePaperView.listener = { mainScrollView.post { mainScrollView.fullScroll(View.FOCUS_RIGHT) } }
+        mainSimplePaperView.setOnDrawListener { mainScrollView.post { mainScrollView.fullScroll(View.FOCUS_RIGHT) } }
         mainBtnClear.setOnClickListener { mainSimplePaperView.clearPaper() }
         mainBtnRedraw.setOnClickListener {
             mainSimplePaperView.clearPaper(false)

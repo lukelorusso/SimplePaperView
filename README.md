@@ -1,5 +1,7 @@
 # README #
 
+[ ![Download](https://api.bintray.com/packages/lukelorusso/maven/com.lukelorusso:simplepaperview/images/download.svg?version=1.1.0) ](https://bintray.com/lukelorusso/maven/com.lukelorusso:simplepaperview/1.1.0/link)
+
 ## Presentation ##
 
 ![Demo](demo.gif)
