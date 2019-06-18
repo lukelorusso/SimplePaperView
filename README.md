@@ -32,7 +32,7 @@ In this way you can put your effort on what you really care: create lines, circl
 
 Make sure to include the library in your app's build.gradle:
 ```groovy
-    implementation 'com.lukelorusso:simplepaperview:1.1.0'
+    implementation 'com.lukelorusso:simplepaperview:1.1.1'
 ```  
 
 Add the view to your layout:
@@ -108,8 +108,8 @@ mySimplePaperView.drawInPx(line)
 
 If you need to add multiple items and draw them together at the end, you can:
 ```kotlin
-mySimplePaperView.drawInDp(circle, false) // we invoke the choice to NOT invalidate the view ("false")
-mySimplePaperView.drawInDp(label, true) // now we want to invalidate (redraw) the view ("true")
+mySimplePaperView.drawInDp(circle, false) // we invoke the choice to NOT invalidate the view -> false
+mySimplePaperView.drawInDp(label, true) // now we want to invalidate (redraw) the view -> true
 ```  
 
 Anyway, to simplify your life you may want to:
