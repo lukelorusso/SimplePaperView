@@ -129,9 +129,13 @@ Don't you like your drawing? Just clear the paper:
 mySimplePaperView.clearPaper()
 ```  
 
-Feel free to checkout and launch the example app 🎡
-
 More shapes coming soon! 😎
+
+- - -
+
+# Explore! #
+
+Feel free to checkout and launch the example app 🎡
 
 - - -
 
@@ -141,6 +145,6 @@ More shapes coming soon! 😎
 
 - - -
 
-## Copyright ##
+# Copyright #
 
-The App: Copyright 2019 LUCA LORUSSO - http://lukelorusso.com
+Make with 💚 by [Luca Lorusso](http://lukelorusso.com), licensed under [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0)
