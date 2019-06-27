@@ -13,14 +13,14 @@ ext {
 
     // ANDROID VERSION
     androidCompileSdkVersion    = 28
-    androidMinSdkVersion        = 21
+    androidMinSdkVersion        = 16
     androidTargetSdkVersion     = 28
 
     // KOTLIN
     kotlinStdlib                = "org.jetbrains.kotlin:kotlin-stdlib:${ext.kotlin_version}"
 
     // ANDROID LIB
-    androidAppCompatXVersion    = '1.0.2'
-    androidXAppCompat           = "androidx.appcompat:appcompat:$androidAppCompatXVersion"
+    androidXAppCompatVersion    = '1.0.2'
+    androidXAppCompat           = "androidx.appcompat:appcompat:$androidXAppCompatVersion"
 
 }

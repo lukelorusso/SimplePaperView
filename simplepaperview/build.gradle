@@ -17,6 +17,11 @@ android {
             minifyEnabled false
         }
     }
+    sourceSets {
+        androidTest.java.srcDirs += 'src/androidTest/kotlin'
+        main.java.srcDirs += 'src/main/kotlin'
+        test.java.srcDirs += 'src/test/kotlin'
+    }
 }
 
 dependencies {
@@ -47,14 +52,6 @@ publishing {
             artifact(sourceJar)
             artifact("$buildDir/outputs/aar/$libArtifactId-release.aar")
         }
-    }
-}
-
-android {
-    sourceSets {
-        androidTest.java.srcDirs += 'src/androidTest/kotlin'
-        main.java.srcDirs += 'src/main/kotlin'
-        test.java.srcDirs += 'src/test/kotlin'
     }
 }
 
