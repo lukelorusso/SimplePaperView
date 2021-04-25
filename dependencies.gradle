@@ -8,19 +8,31 @@ allprojects {
 ext {
 
     // APP VERSION
-    androidVersionCode          = 4
-    androidVersionName          = '1.1.2' // REMEMBER: also update README.md (all instances)
+    androidVersionCode          = 5
+    androidVersionName          = '1.1.5' // REMEMBER: also update README.md
 
     // ANDROID VERSION
-    androidCompileSdkVersion    = 28
     androidMinSdkVersion        = 16
-    androidTargetSdkVersion     = 28
+    androidTargetSdkVersion     = 30
 
     // KOTLIN
     kotlinStdlib                = "org.jetbrains.kotlin:kotlin-stdlib:${ext.kotlin_version}"
 
     // ANDROID LIB
-    androidXAppCompatVersion    = '1.0.2'
-    androidXAppCompat           = "androidx.appcompat:appcompat:$androidXAppCompatVersion"
+    androidXAppCompat           = "androidx.appcompat:appcompat:1.2.0"
+
+    // DEPENDENCY CHECK STRATEGY
+    dependencyUpdatesStrategy = {
+        componentSelection { rules ->
+            rules.all { ComponentSelection selection ->
+                boolean rejected = ['alpha', 'beta', 'rc', 'cr', 'm'].any { qualifier ->
+                    selection.candidate.version ==~ /(?i).*[.-]${qualifier}[.\d-]*/
+                }
+                if (rejected) {
+                    selection.reject('Release candidate')
+                }
+            }
+        }
+    }
 
 }
