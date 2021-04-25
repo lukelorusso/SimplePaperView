@@ -1,9 +1,10 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.github.ben-manes.versions'
 
 android {
-    compileSdkVersion androidCompileSdkVersion
+    compileSdkVersion androidTargetSdkVersion
+
     defaultConfig {
         applicationId "com.lukelorusso.simplepaperviewsample"
         minSdkVersion androidMinSdkVersion
@@ -11,11 +12,17 @@ android {
         versionCode androidVersionCode
         versionName androidVersionName
     }
+
+    buildFeatures {
+        viewBinding true
+    }
+
     buildTypes {
         release {
             minifyEnabled false
         }
     }
+
     sourceSets {
         androidTest.java.srcDirs += 'src/androidTest/kotlin'
         main.java.srcDirs += 'src/main/kotlin'
@@ -27,4 +34,7 @@ dependencies {
     implementation project(':simplepaperview')
     implementation kotlinStdlib
     implementation androidXAppCompat
+
+    // DEPENDENCY CHECK STRATEGY
+    dependencyUpdates.resolutionStrategy dependencyUpdatesStrategy
 }
