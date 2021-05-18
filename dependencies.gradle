@@ -1,15 +1,16 @@
 allprojects {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
+        gradlePluginPortal()
     }
 }
 
 ext {
 
     // APP VERSION
-    androidVersionCode          = 5
-    androidVersionName          = '1.1.5' // REMEMBER: also update README.md
+    androidVersionCode          = 6
+    androidVersionName          = '1.1.6' // REMEMBER: also update README.md
 
     // ANDROID VERSION
     androidMinSdkVersion        = 16

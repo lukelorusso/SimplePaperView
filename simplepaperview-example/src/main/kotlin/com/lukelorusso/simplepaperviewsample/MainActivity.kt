@@ -12,17 +12,12 @@ import com.lukelorusso.simplepaperviewsample.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
+    private val binding by viewBinding(ActivityMainBinding::inflate)
     private lateinit var colors: List<Int>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        ActivityMainBinding.inflate(layoutInflater).also { inflated ->
-            binding = inflated
-            setContentView(binding.root)
-        }
+        setContentView(binding.root)
 
         //region INIT VIEW
         colors = listOf(

@@ -44,7 +44,7 @@ allprojects {
 Step 2. add the dependency:
 
 ```groovy
-    implementation 'com.github.lukelorusso:SimplePaperView:1.1.5'
+    implementation 'com.github.lukelorusso:SimplePaperView:1.1.6'
 ```
 
 That's it!
